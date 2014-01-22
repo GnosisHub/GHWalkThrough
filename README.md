@@ -1,9 +1,8 @@
 #GHWalkThrough - iOS App Walk through control
 
-![BackgroundImage]()
-![BackgroundImage]()
-![BackgroundImage]()
-![BackgroundImage]()
+![BackgroundImage](https://raw2.github.com/GnosisHub/GHWalkThrough/master/wtwithheader.gif)
+![BackgroundImage](https://raw2.github.com/GnosisHub/GHWalkThrough/master/wtbgfixed.gif)
+![BackgroundImage](https://raw2.github.com/GnosisHub/GHWalkThrough/master/wtvertical.gif)
 
 This is simple and customizable drop-in solution for showing app walkthroughs or intros.
 
