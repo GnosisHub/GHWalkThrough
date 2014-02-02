@@ -14,10 +14,12 @@ typedef NS_ENUM(NSInteger, GHWalkThroughViewDirection) {
     GHWalkThroughViewDirectionHorizontal
 };
 
-
+@protocol GHWalkThroughViewDelegate;
 @protocol GHWalkThroughViewDataSource;
 
 @interface GHWalkThroughView : UIView
+
+@property (nonatomic, assign) id<GHWalkThroughViewDelegate> delegate;
 
 @property (nonatomic, assign) id<GHWalkThroughViewDataSource> dataSource;
 
@@ -29,7 +31,16 @@ typedef NS_ENUM(NSInteger, GHWalkThroughViewDirection) {
 
 @property (nonatomic, strong) UIImage* bgImage;
 
+@property (nonatomic, copy) NSString *closeTitle;
+
 - (void) showInView:(UIView*) view animateDuration:(CGFloat) duration;
+
+@end
+
+@protocol GHWalkThroughViewDelegate <NSObject>
+
+@optional
+- (void)walkthroughDidDismissView:(GHWalkThroughView *)walkthroughView;
 
 @end
 

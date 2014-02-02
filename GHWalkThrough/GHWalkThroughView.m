@@ -91,6 +91,12 @@
     [self orientFooter];
 }
 
+- (void)setCloseTitle:(NSString *)closeTitle
+{
+    _closeTitle = closeTitle;
+    [self.skipButton setTitle:_closeTitle forState:UIControlStateNormal];
+}
+
 - (void) orientFooter
 {
     if (self.walkThroughDirection == GHWalkThroughViewDirectionVertical) {
@@ -152,6 +158,9 @@
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)0);
         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
             [self removeFromSuperview];
+            if (self.delegate != nil && [self.delegate respondsToSelector:@selector(walkthroughDidDismissView:)]) {
+                [self.delegate walkthroughDidDismissView:self];
+            }
         });
 	}];
 }
