@@ -34,7 +34,7 @@ Sample app contains examples of how to configure the component
 - (void) configurePage:(GHWalkThroughPageCell *)cell atIndex:(NSInteger)index
 {
     cell.title = @"Some title for page";
-    cell.titleImage = [UIImage imageNamed:@"Title Image name"]];
+    cell.titleImage = [UIImage imageNamed:@"Title Image name"];
     cell.desc = @"Some Description String";
 }
 
