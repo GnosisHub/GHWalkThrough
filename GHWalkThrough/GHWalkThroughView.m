@@ -198,7 +198,6 @@
 
 - (void) scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-    self.pageControl.currentPage = ((NSIndexPath*)[self.collectionView indexPathsForVisibleItems][0]).row;
 //    if ([self.dataSource respondsToSelector:@selector(bgImageforPage:)]) {
 //        self.bgFrontLayer.image = [self.dataSource bgImageforPage:self.pageControl.currentPage];
 //    }
@@ -210,6 +209,23 @@
         float offset = self.walkThroughDirection == GHWalkThroughViewDirectionHorizontal ? self.collectionView.contentOffset.x / self.collectionView.frame.size.width : self.collectionView.contentOffset.y / self.collectionView.frame.size.height ;
         [self crossDissolveForOffset:offset];
     }
+    
+    CGFloat pageMetric = 0.0f;
+    CGFloat contentOffset = 0.0f;
+    
+    switch (self.walkThroughDirection) {
+        case GHWalkThroughViewDirectionHorizontal:
+            pageMetric = scrollView.frame.size.width;
+            contentOffset = scrollView.contentOffset.x;
+            break;
+        case GHWalkThroughViewDirectionVertical:
+            pageMetric = scrollView.frame.size.height;
+            contentOffset = scrollView.contentOffset.y;
+            break;
+    }
+    
+    int page = floor((contentOffset - pageMetric / 2) / pageMetric) + 1;
+    self.pageControl.currentPage = page;
 }
 
 - (void)crossDissolveForOffset:(float)offset {
