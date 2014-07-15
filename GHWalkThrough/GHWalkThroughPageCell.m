@@ -42,6 +42,7 @@
 {
     _titleImage = titleImage;
     self.titleImageView.image = self.titleImage;
+	self.titleImageView.contentMode = UIViewContentModeScaleAspectFit;
     [self setNeedsLayout];
 }
 

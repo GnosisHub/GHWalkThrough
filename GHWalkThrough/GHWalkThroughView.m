@@ -138,7 +138,7 @@
     [self addSubview:self.pageControl];
     [self bringSubviewToFront:self.pageControl];
     
-    self.skipButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    self.skipButton = [UIButton buttonWithType:UIButtonTypeCustom];
     
     self.skipButton.frame = CGRectMake(self.frame.size.width - 80, self.pageControl.frame.origin.y - ((30 - self.pageControl.frame.size.height)/2), 80, 30);
     
