@@ -129,6 +129,9 @@
 
 - (void)buildFooterView {
     self.pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, self.frame.size.height - 60, self.frame.size.width, 20)];
+
+	//Avoid changing the page by tapping left or right to the pageControl
+	self.pageControl.userInteractionEnabled = NO;
     
     //Set defersCurrentPageDisplay to YES to prevent page control jerking when switching pages with page control. This prevents page control from instant change of page indication.
     self.pageControl.defersCurrentPageDisplay = YES;
