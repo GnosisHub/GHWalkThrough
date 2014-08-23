@@ -37,10 +37,10 @@
 {
     self.backgroundColor = [UIColor grayColor];
     
-    _bgFrontLayer = [[UIImageView alloc] initWithFrame:self.frame];
-    _bgBackLayer = [[UIImageView alloc] initWithFrame:self.frame];
+    _bgFrontLayer = [[UIImageView alloc] initWithFrame:self.bounds];
+    _bgBackLayer = [[UIImageView alloc] initWithFrame:self.bounds];
     
-    UIView* bgView = [[UIView alloc] initWithFrame:self.frame];
+    UIView* bgView = [[UIView alloc] initWithFrame:self.bounds];
     [bgView addSubview:_bgBackLayer];
     [bgView addSubview:_bgFrontLayer];
 
@@ -50,7 +50,7 @@
     [flowLayout setMinimumLineSpacing:0.0f];
     self.layout = flowLayout;
 
-    _collectionView = [[UICollectionView alloc] initWithFrame:self.frame collectionViewLayout:flowLayout];
+    _collectionView = [[UICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:flowLayout];
     _collectionView.backgroundColor = [UIColor clearColor];
     _collectionView.backgroundView = bgView;
     _collectionView.showsHorizontalScrollIndicator = NO;
@@ -74,7 +74,7 @@
     _floatingHeaderView = floatingHeaderView;
     CGRect frame = _floatingHeaderView.frame;
     frame.origin.y = 50;
-    frame.origin.x = self.frame.size.width/2 - frame.size.width/2;
+    frame.origin.x = self.bounds.size.width/2 - frame.size.width/2;
     _floatingHeaderView.frame = frame;
     
     [self addSubview:_floatingHeaderView];
@@ -109,7 +109,7 @@
             self.pageControl.transform = CGAffineTransformRotate(self.pageControl.transform, M_PI_2);
             CGRect frame = self.pageControl.frame;
             frame.size.height = ([self.dataSource numberOfPages] + 1 ) * 16;
-            frame.origin.x = self.frame.size.width - frame.size.width - 10;
+            frame.origin.x = self.bounds.size.width - frame.size.width - 10;
             frame.origin.y = butonFrame.origin.y+butonFrame.size.height - frame.size.height;
             self.pageControl.frame = frame;
         
@@ -119,16 +119,16 @@
         if (isRotated) {
             // Rotate back the page control
             self.pageControl.transform = CGAffineTransformRotate(self.pageControl.transform, -M_PI_2);
-            self.pageControl.frame = CGRectMake(0, self.frame.size.height - 60, self.frame.size.width, 20);
+            self.pageControl.frame = CGRectMake(0, self.bounds.size.height - 60, self.bounds.size.width, 20);
             
-            self.skipButton.frame = CGRectMake(self.frame.size.width - 80, self.pageControl.frame.origin.y - ((30 - self.pageControl.frame.size.height)/2), 80, 30);
+            self.skipButton.frame = CGRectMake(self.bounds.size.width - 80, self.pageControl.frame.origin.y - ((30 - self.pageControl.frame.size.height)/2), 80, 30);
 
         }
     }
 }
 
 - (void)buildFooterView {
-    self.pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, self.frame.size.height - 60, self.frame.size.width, 20)];
+    self.pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, self.bounds.size.height - 60, self.bounds.size.width, 20)];
     
     //Set defersCurrentPageDisplay to YES to prevent page control jerking when switching pages with page control. This prevents page control from instant change of page indication.
     self.pageControl.defersCurrentPageDisplay = YES;
@@ -140,7 +140,7 @@
     
     self.skipButton = [UIButton buttonWithType:UIButtonTypeCustom];
     
-    self.skipButton.frame = CGRectMake(self.frame.size.width - 80, self.pageControl.frame.origin.y - ((30 - self.pageControl.frame.size.height)/2), 80, 30);
+    self.skipButton.frame = CGRectMake(self.bounds.size.width - 80, self.pageControl.frame.origin.y - ((30 - self.pageControl.frame.size.height)/2), 80, 30);
     
     self.skipButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
     [self.skipButton setTitle:@"Skip" forState:UIControlStateNormal];
@@ -193,7 +193,7 @@
 }
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return self.frame.size;
+    return self.bounds.size;
 }
 
 - (void) scrollViewDidEndDecelerating:(UIScrollView *)scrollView
