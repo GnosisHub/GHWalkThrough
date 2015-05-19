@@ -59,12 +59,12 @@
     
     CGRect rect1 = self.titleImageView.frame;
     rect1.origin.x = (self.contentView.frame.size.width - rect1.size.width)/2;
-    rect1.origin.y = self.frame.size.height - self.titlePositionY - self.imgPositionY - rect1.size.height;
+    rect1.origin.y = self.bounds.size.height - self.titlePositionY - self.imgPositionY - rect1.size.height;
     self.titleImageView.frame = rect1;
 
     [self layoutTitleLabel];
     
-    CGRect descLabelFrame = CGRectMake(20, self.frame.size.height - self.descPositionY, self.contentView.frame.size.width - 40, 500);
+    CGRect descLabelFrame = CGRectMake(20, self.bounds.size.height - self.descPositionY, self.contentView.frame.size.width - 40, 500);
     self.descLabel.frame = descLabelFrame;
     
 }
@@ -84,7 +84,7 @@
 #pragma clang diagnostic pop
     }
     
-    CGRect titleLabelFrame = CGRectMake(10, self.frame.size.height - self.titlePositionY, self.contentView.frame.size.width - 20, titleHeight);
+    CGRect titleLabelFrame = CGRectMake(10, self.bounds.size.height - self.titlePositionY, self.contentView.frame.size.width - 20, titleHeight);
 
     self.titleLabel.frame = titleLabelFrame;
 }
