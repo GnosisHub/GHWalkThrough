@@ -53,6 +53,7 @@
     [self setNeedsLayout];
 }
 
+
 - (void) layoutSubviews
 {
     [super layoutSubviews];
@@ -101,6 +102,12 @@
     self.titleColor = [UIColor whiteColor];
     self.descFont = [UIFont fontWithName:@"HelveticaNeue" size:13.0];
     self.descColor = [UIColor whiteColor];
+}
+
+-(void) setFont:(UIFont *) font{
+    self.descFont = font;
+    _descLabel.font = self.descFont;
+    [self setNeedsLayout];
 }
 
 - (void) buildUI {

@@ -78,6 +78,7 @@ static NSString * const sampleDesc5 = @"Sed rhoncus arcu nisl, in ultrices mi eg
     switch (indexPath.row) {
         case 0:
             self.ghView.floatingHeaderView = nil;
+            [self.ghView SetFont:[UIFont fontWithName:@"Helvetica" size:18.0]];
             [self.ghView setWalkThroughDirection:GHWalkThroughViewDirectionHorizontal];
             break;
         case 1:
