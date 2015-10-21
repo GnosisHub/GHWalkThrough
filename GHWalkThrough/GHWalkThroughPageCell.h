@@ -20,6 +20,7 @@
 @property (nonatomic, strong) UIFont *descFont;
 @property (nonatomic, strong) UIColor *descColor;
 @property (nonatomic, assign) CGFloat descPositionY;
+-(void) setFont:(UIFont *) font;
 
 
 @end

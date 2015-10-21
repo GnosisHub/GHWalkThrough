@@ -31,7 +31,10 @@ typedef NS_ENUM(NSInteger, GHWalkThroughViewDirection) {
 
 @property (nonatomic, strong) UIImage* bgImage;
 
+@property (nonatomic, strong) UIFont* DescFont;
+
 @property (nonatomic, copy) NSString *closeTitle;
+-(void) SetFont:(UIFont *)font;
 
 - (void) showInView:(UIView*) view animateDuration:(CGFloat) duration;
 

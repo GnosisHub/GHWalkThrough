@@ -49,7 +49,7 @@
     [flowLayout setMinimumInteritemSpacing:0.0f];
     [flowLayout setMinimumLineSpacing:0.0f];
     self.layout = flowLayout;
-
+    _DescFont = [UIFont fontWithName:@"HelveticaNeue" size:13.0];
     _collectionView = [[UICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:flowLayout];
     _collectionView.backgroundColor = [UIColor clearColor];
     _collectionView.backgroundView = bgView;
@@ -63,6 +63,10 @@
     
     [self buildFooterView];
 
+}
+
+-(void) SetFont:(UIFont *)font{
+    self.DescFont = font;
 }
 
 - (void) setFloatingHeaderView:(UIView *)floatingHeaderView
@@ -188,6 +192,8 @@
     if (self.dataSource != nil && [self.dataSource respondsToSelector:@selector(configurePage:atIndex:)]) {
         [self.dataSource configurePage:cell atIndex:indexPath.row];
     }
+    NSLog(_DescFont.fontName);
+    [cell setFont:_DescFont];
     return cell;
     
 }
