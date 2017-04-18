@@ -1,4 +1,4 @@
-#GHWalkThrough - iOS App Walk through control
+# GHWalkThrough - iOS App Walk through control
 
 ![alt tag](https://github.com/GnosisHub/GHWalkThrough/blob/master/wtbgfixed.gif)
 ![alt tag](https://github.com/GnosisHub/GHWalkThrough/blob/master/wthorizontal.gif)
@@ -11,7 +11,7 @@ This is simple and customizable drop-in solution for showing app walkthroughs or
 * Support for having custom floating header on all pages
 * Supports fixed background image
 
-##How To Use
+## How To Use
 
 Sample app contains examples of how to configure the component
 
@@ -45,7 +45,7 @@ Sample app contains examples of how to configure the component
 }
 ```
 
-##Credits
+## Credits
 
 For inspiration
 - [EAIntroView](https://github.com/ealeksandrov/EAIntroView)
@@ -53,7 +53,7 @@ For inspiration
 
 
 
-###License :
+### License :
 
 The MIT License
 
